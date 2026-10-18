@@ -10,10 +10,10 @@ using var connection = new SqlConnection(connectionString);
 var repository = new Repository<User>(connection);
 
 // Deixe só UMA linha sem // e rode com: dotnet run
-ReadUsers(repository);
+//ReadUsers(repository);
 //CreateUser(repository);
 //ReadUser(repository);
-//UpdateUser(repository);
+UpdateUser(repository);
 //ReadWithRoles(connection);
 //DeleteUser(repository);
 
@@ -49,10 +49,14 @@ static void ReadUser(Repository<User> repository)
 static void UpdateUser(Repository<User> repository)
 {
     var user = repository.Read(3);
-    user.Name = "Maria Silva";
+
+    user.Name = "Maria Souza";
+    user.Bio = "Estudante de C# e .NET";
+
     repository.Update(user);
 
     Console.WriteLine(user.Name);
+    Console.WriteLine(user.Bio);
 }
 
 static void DeleteUser(Repository<User> repository)
