@@ -12,7 +12,7 @@ var repository = new Repository<User>(connection);
 // Deixe só UMA linha sem // e rode com: dotnet run
 ReadUsers(repository);
 //CreateUser(repository);
-// ReadUser(repository);
+//ReadUser(repository);
 //UpdateUser(repository);
 //ReadWithRoles(connection);
 //DeleteUser(repository);
@@ -42,22 +42,22 @@ static void ReadUsers(Repository<User> repository)
 
 static void ReadUser(Repository<User> repository)
 {
-    var user = repository.Read(1);
+    var user = repository.Read(3);
     Console.WriteLine(user?.Email);
 }
 
 static void UpdateUser(Repository<User> repository)
 {
-    var user = repository.Read(1);
-    user.Email = "novo@teste.com";
+    var user = repository.Read(3);
+    user.Name = "Maria Silva";
     repository.Update(user);
 
-    Console.WriteLine(user.Email);
+    Console.WriteLine(user.Name);
 }
 
 static void DeleteUser(Repository<User> repository)
 {
-    var user = repository.Read(1);
+    var user = repository.Read(3);
     repository.Delete(user);
     Console.WriteLine("Usuário excluído");
 }
