@@ -9,23 +9,24 @@ var connectionString =
 using var connection = new SqlConnection(connectionString);
 var repository = new Repository<User>(connection);
 
+Console.Clear();
 // Deixe só UMA linha sem // e rode com: dotnet run
 ReadUsers(repository);
+
 //CreateUser(repository);
-//ReadUser(repository);
-//UpdateUser(repository);
 //ReadWithRoles(connection);
+//UpdateUser(repository);
 //DeleteUser(repository);
 
 static void CreateUser(Repository<User> repository)
 {
     var user = new User
     {
-        Bio = "Estudante de .NET",
-        Email = "maria@teste.com",
-        Image = "https://exemplo.com/maria.jpg",
-        Name = "Maria Teste",
-        Slug = "maria-teste",
+        Bio = "Estudante de banco de dados",
+        Email = "joao@teste.com",
+        Image = "https://exemplo.com/joao.jpg",
+        Name = "João Teste",
+        Slug = "joao-teste",
         PasswordHash = Guid.NewGuid().ToString()
     };
 
@@ -37,7 +38,7 @@ static void ReadUsers(Repository<User> repository)
 {
     var users = repository.Read();
     foreach (var item in users)
-        Console.WriteLine($"{item.Id} - {item.Email}");
+        Console.WriteLine($"{item.Id} - {item.Name} - {item.Email}");
 }
 
 static void ReadUser(Repository<User> repository)
