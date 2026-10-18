@@ -12,6 +12,7 @@ var repository = new Repository<User>(connection);
 Console.Clear();
 // Deixe só UMA linha sem // e rode com: dotnet run
 ReadUsers(repository);
+//ReadUser(repository);
 
 //CreateUser(repository);
 //ReadWithRoles(connection);
@@ -43,8 +44,15 @@ static void ReadUsers(Repository<User> repository)
 
 static void ReadUser(Repository<User> repository)
 {
-    var user = repository.Read(3);
-    Console.WriteLine(user?.Email);
+    var user = repository.Read(4);
+
+    if (user == null)
+    {
+        Console.WriteLine("Usuário não encontrado");
+        return;
+    }
+
+    Console.WriteLine($"{user.Id} - {user.Name} - {user.Email}");
 }
 
 static void UpdateUser(Repository<User> repository)
