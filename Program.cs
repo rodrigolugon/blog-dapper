@@ -10,10 +10,10 @@ using var connection = new SqlConnection(connectionString);
 var repository = new Repository<User>(connection);
 
 // Deixe só UMA linha sem // e rode com: dotnet run
-//ReadUsers(repository);
+ReadUsers(repository);
 //CreateUser(repository);
 //ReadUser(repository);
-UpdateUser(repository);
+//UpdateUser(repository);
 //ReadWithRoles(connection);
 //DeleteUser(repository);
 
